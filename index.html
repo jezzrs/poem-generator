@@ -7,37 +7,40 @@
     <title>AI Poem Generator</title>
   </head>
   <body>
-    <header>
-      <h1>AI Poem Generator</h1>
-    </header>
-    <main>
-      <form>
-        <input
-          type="text"
-          placeholder="Enter the topic of your poem"
-          autofocus
-          required
-          autocomplete="off"
-        />
-        <input type="submit" />
-      </form>
-      <div id="">
-        The Naming of Cats
-        <br />
-        The Naming of Cats is a difficult matter,
-      </div>
-    </main>
-    <footer>
-      <p>
-        This project was coded by
-        <a href="https://github.com/jezzrs" target="_blank">Jezz R.</a>and it is
-        open sourced on
-        <a href="https://github.com/jezzrs/poem-generator" target="_blank"
-          >GitHub</a
-        >. Hosted on
-        <a href="github.com/jezzrs/poem-generator" target="_blank">Netlify</a>
-      </p>
-    </footer>
+    <div class="main-container">
+      <header>
+        <h1>AI Poem Generator</h1>
+      </header>
+      <main>
+        <form>
+          <input
+            class="instructions"
+            type="text"
+            placeholder="Enter the topic of your poem"
+            autofocus
+            required
+            autocomplete="off"
+          />
+          <input type="submit" class="submit-button" id="submit-button" />
+        </form>
+        <div class="poem" id="poem">
+          The Naming of Cats
+          <br />
+          The Naming of Cats is a difficult matter
+        </div>
+      </main>
+      <footer>
+        <p>
+          This project was coded by
+          <a href="https://github.com/jezzrs" target="_blank">Jezz R.</a>and it
+          is open sourced on
+          <a href="https://github.com/jezzrs/poem-generator" target="_blank"
+            >GitHub</a
+          >. Hosted on
+          <a href="github.com/jezzrs/poem-generator" target="_blank">Netlify</a>
+        </p>
+      </footer>
+    </div>
     <script src="src/index.js"></script>
   </body>
 </html>
