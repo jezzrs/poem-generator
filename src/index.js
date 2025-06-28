@@ -34,20 +34,22 @@ function generatePoem(event) {
 
 //Handle API response
 function displayPoem(response) {
-  console.log("API response", response);
-
   const poemElement = document.getElementById("poem");
+  console.log("Poem generated");
   console.log("Poem is:", response.data);
-  const answer = response?.data?.answer || "(No poem returned)";
 
-  poemElement.innerHTML = `${JSON.stringify(answer, null, 2)}`;
+  const answer = response?.data?.answer || "(No poem returned)";
+  const poemWithCredit = `${answer}\n\n <div class=credits> — by She Codes AI</div>`;
+
+  poemElement.innerHTML = `${JSON.stringify(answer, null)}`;
+  poemElement.classList.remove("poem-hidden");
+  poemElement.classList.add("poem");
 
   //Typewrite animation
   new Typewriter(poemElement, {
-    strings: [answer],
+    strings: `${poemWithCredit}`,
     autoStart: true,
     cursor: "",
     delay: 50,
-    loop: false,
   });
 }
