@@ -81,6 +81,7 @@ form {
 .credits {
   color: #7b4cf0;
   font-style: italic;
+  line-height: 30px;
 }
 
 footer {
