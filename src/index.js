@@ -11,7 +11,6 @@ function generatePoem(event) {
   const instructionsInput = document
     .getElementById("instructions")
     .value.trim();
-
   if (!instructionsInput) {
     alert("Please enter a topic for your poem");
     return;
@@ -30,7 +29,6 @@ function generatePoem(event) {
 
   const poemElement = document.getElementById("poem");
 
-  poemElement.innerHTML = `${JSON.stringify([instructionsInput], null)}`;
   poemElement.classList.remove("poem-hidden");
   poemElement.classList.add("poem");
   poemElement.innerHTML = `<div class=loading> ⌛ <em> Please wait... We are generating your poem about <b>${instructionsInput}</b> </em> </div>`;
@@ -51,7 +49,7 @@ function displayPoem(response) {
   userInput.style.color = "transparent";
 
   // Set new value
-  userInput.value = "Type another topic...";
+  userInput.value = "Want another poem? Type a new topic...";
 
   // Trigger fade-in of text only
   userInput.animate(
@@ -69,12 +67,14 @@ function displayPoem(response) {
   //Display Peom
   const answer = response?.data?.answer || "(No poem returned)";
   const poemWithCredit = `${answer}\n\n <div class=credits> — by SheCodes AI</div>`;
-
+  const poemElement = document.getElementById("poem");
   //Typewrite animation
-  new Typewriter("#poem", {
-    strings: [poemWithCredit],
+  const typewrite = new Typewriter(poemElement, {
     autoStart: true,
-    cursor: "",
     delay: 100,
+    loop: false,
+    deleteSpeed: 0,
+    cursor: "",
   });
+  typewrite.typeString(poemWithCredit).start();
 }
