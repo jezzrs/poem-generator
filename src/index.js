@@ -33,7 +33,7 @@ function generatePoem(event) {
   poemElement.innerHTML = `${JSON.stringify([instructionsInput], null)}`;
   poemElement.classList.remove("poem-hidden");
   poemElement.classList.add("poem");
-  poemElement.innerHTML = `<div class=loading> <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/169/243/original/Sand_clock.gif?1751191140" alt="sand clock"> </br> We are generating your poem about ${instructionsInput}</div>`;
+  poemElement.innerHTML = `<div class=loading> ⌛ </br> <em> Please wait... </br> We are generating your poem about <b>${instructionsInput}</b> </em> </div>`;
 
   //Call API
   axios.get(apiUrl).then(displayPoem);
@@ -55,6 +55,6 @@ function displayPoem(response) {
     strings: `${poemWithCredit}`,
     autoStart: true,
     cursor: "",
-    delay: 50,
+    delay: 100,
   });
 }
