@@ -13,6 +13,7 @@ body {
 header {
   margin-bottom: 10px;
 }
+
 h1 {
   text-align: center;
   font-weight: 900;
@@ -20,6 +21,7 @@ h1 {
   line-height: 1.5;
   color: #7b4cf0;
 }
+
 a {
   color: #7b4cf0;
 }
@@ -51,7 +53,8 @@ form {
   font-size: 16px;
   border-radius: 40px;
   line-height: 20px;
-  color: rgb(150, 150, 150);
+  color: rgb(2, 2, 2);
+  font-style: italic;
 }
 
 .submit-button {
@@ -64,16 +67,26 @@ form {
   font-size: 16px;
   box-shadow: 0px 20px 60px rgba(65, 50, 100, 0.08);
 }
+
+.loading {
+  text-align: center;
+}
+
+.poem-container {
+  transition: all 1s ease;
+}
+
 .poem {
   font-size: 14px;
   background-color: #ffffff;
   padding: 20px;
-  line-height: 15px;
+  line-height: 30px;
   box-shadow: 12px 10px 40px rgba(65, 50, 100, 0.1);
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-left: 5px solid #7b4cf0;
 }
+
 .poem-hidden {
   display: none;
 }
