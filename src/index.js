@@ -75,6 +75,6 @@ function displayPoem(response) {
     strings: [poemWithCredit],
     autoStart: true,
     cursor: "",
-    delay: 80,
+    delay: 100,
   });
 }
