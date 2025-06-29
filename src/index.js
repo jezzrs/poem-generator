@@ -33,7 +33,7 @@ function generatePoem(event) {
   poemElement.innerHTML = `${JSON.stringify([instructionsInput], null)}`;
   poemElement.classList.remove("poem-hidden");
   poemElement.classList.add("poem");
-  poemElement.innerHTML = `<div class=loading> ⌛ </br> <em> Please wait... </br> We are generating your poem about <b>${instructionsInput}</b> </em> </div>`;
+  poemElement.innerHTML = `<div class=loading> ⌛ <em> Please wait... We are generating your poem about <b>${instructionsInput}</b> </em> </div>`;
 
   //Call API
   axios.get(apiUrl).then(displayPoem);
@@ -44,17 +44,37 @@ function displayPoem(response) {
   console.log("Poem generated");
   console.log("Poem is:", response.data);
 
+  //Animation when instructions rest
   const userInput = document.getElementById("instructions");
   userInput.value = "";
+  // Temporarily set text color to transparent
+  userInput.style.color = "transparent";
 
+  // Set new value
+  userInput.value = "Type another topic...";
+
+  // Trigger fade-in of text only
+  userInput.animate(
+    [
+      { color: "transparent" },
+      { color: "rgb(148, 148, 148)" }, // Or your preferred text color
+    ],
+    {
+      duration: 500,
+      fill: "forwards",
+      easing: "ease-out",
+    }
+  );
+
+  //Display Peom
   const answer = response?.data?.answer || "(No poem returned)";
   const poemWithCredit = `${answer}\n\n <div class=credits> — by SheCodes AI</div>`;
 
   //Typewrite animation
   new Typewriter("#poem", {
-    strings: `${poemWithCredit}`,
+    strings: [poemWithCredit],
     autoStart: true,
     cursor: "",
-    delay: 100,
+    delay: 80,
   });
 }

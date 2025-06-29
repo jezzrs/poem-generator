@@ -86,17 +86,15 @@ form {
 }
 
 .poem-container {
-  transition: all 1s ease;
+  border-radius: 5px;
+  box-shadow: 12px 10px 40px rgba(65, 50, 100, 0.1);
 }
 
 .poem {
   font-size: 14px;
   background-color: #ffffff;
   padding: 20px;
-  line-height: 30px;
-  box-shadow: 12px 10px 40px rgba(65, 50, 100, 0.1);
-  border-radius: 5px;
-  margin-bottom: 10px;
+  line-height: 2;
   border-left: 5px solid #7b4cf0;
 }
 
